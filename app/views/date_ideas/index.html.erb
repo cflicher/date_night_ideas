@@ -32,8 +32,11 @@
         <td><%= date_idea.description %></td>
         <td>
           <a href="/date_ideas/<%= date_idea.id %>" class="btn btn-primary">Show</a>
-          <a href="/date_ideas/<%= date_idea.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_date_idea/<%= date_idea.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == date_idea.user %>
+            <a href="/date_ideas/<%= date_idea.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_date_idea/<%= date_idea.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

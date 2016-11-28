@@ -35,12 +35,14 @@
       <a href="/date_ideas" class="btn btn-primary">
         Back
       </a>
-      <a href="/date_ideas/<%= @date_idea.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_date_idea/<%= @date_idea.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @date_idea.user %>
+        <a href="/date_ideas/<%= @date_idea.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_date_idea/<%= @date_idea.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>

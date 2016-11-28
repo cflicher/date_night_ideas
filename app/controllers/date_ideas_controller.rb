@@ -1,4 +1,14 @@
 class DateIdeasController < ApplicationController
+  before_action :current_user_must_be_date_idea_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_date_idea_user
+    date_idea = DateIdea.find(params[:id])
+
+    unless current_user == date_idea.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @date_ideas = DateIdea.all
 
