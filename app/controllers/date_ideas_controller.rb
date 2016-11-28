@@ -16,6 +16,7 @@ class DateIdeasController < ApplicationController
   end
 
   def show
+    @review = Review.new
     @date_idea = DateIdea.find(params[:id])
 
     render("date_ideas/show.html.erb")

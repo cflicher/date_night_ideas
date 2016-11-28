@@ -6,6 +6,7 @@ class NeighborhoodsController < ApplicationController
   end
 
   def show
+    @date_idea = DateIdea.new
     @neighborhood = Neighborhood.find(params[:id])
 
     render("neighborhoods/show.html.erb")
