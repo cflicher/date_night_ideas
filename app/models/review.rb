@@ -13,6 +13,10 @@ class Review < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :helpful_user,
+             :through => :helpful_ratings,
+             :source => :user
+
   # Validations
 
 end

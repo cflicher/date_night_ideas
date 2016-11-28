@@ -11,6 +11,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :helpful_rates,
+             :through => :helpful_ratings,
+             :source => :review
+
   # Validations
 
   # Include default devise modules. Others available are:
