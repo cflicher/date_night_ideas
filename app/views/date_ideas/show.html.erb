@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h3>Date Idea #<%= @date_idea.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @date_idea.user_id %></dd>
+
+      <dt>Name</dt>
+      <dd><%= @date_idea.name %></dd>
+
+      <dt>Neighborhood</dt>
+      <dd><%= @date_idea.neighborhood_id %></dd>
+
+      <dt>Website</dt>
+      <dd><%= @date_idea.website %></dd>
+
+      <dt>Address</dt>
+      <dd><%= @date_idea.address %></dd>
+
+      <dt>Cover photo</dt>
+      <dd><%= @date_idea.cover_photo %></dd>
+
+      <dt>Price range</dt>
+      <dd><%= @date_idea.price_range %></dd>
+
+      <dt>Description</dt>
+      <dd><%= @date_idea.description %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/date_ideas" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/date_ideas/<%= @date_idea.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_date_idea/<%= @date_idea.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
