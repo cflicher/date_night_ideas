@@ -22,9 +22,21 @@
 
       <% @date_ideas.each do |date_idea| %>
       <tr>
-        <td><%= date_idea.user.email %></td>
+        <td>
+          <% if date_idea.user.present? %>
+            <a href="/users/<%= date_idea.user.id %>">
+              <%= date_idea.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= date_idea.name %></td>
-        <td><%= date_idea.neighborhood.city_id %></td>
+        <td>
+          <% if date_idea.neighborhood.present? %>
+            <a href="/neighborhoods/<%= date_idea.neighborhood.id %>">
+              <%= date_idea.neighborhood.city_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= date_idea.website %></td>
         <td><%= date_idea.address %></td>
         <td><img src='<%= date_idea.cover_photo %>' class='img-responsive'></td>
