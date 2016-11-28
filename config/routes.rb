@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "photos#index"
   # Routes for the Helpful_rating resource:
   # CREATE
   get "/helpful_ratings/new", :controller => "helpful_ratings", :action => "new"
