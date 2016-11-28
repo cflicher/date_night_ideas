@@ -10,7 +10,8 @@ class DateIdeasController < ApplicationController
   end
 
   def index
-    @date_ideas = DateIdea.page(params[:page]).per(10)
+    @q = DateIdea.ransack(params[:q])
+    @date_ideas = @q.result(:distinct => true).includes(:user, :reviews, :neighborhood, :users).page(params[:page]).per(10)
 
     render("date_ideas/index.html.erb")
   end

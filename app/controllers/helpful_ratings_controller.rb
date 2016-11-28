@@ -1,6 +1,7 @@
 class HelpfulRatingsController < ApplicationController
   def index
-    @helpful_ratings = HelpfulRating.page(params[:page]).per(10)
+    @q = HelpfulRating.ransack(params[:q])
+    @helpful_ratings = @q.result(:distinct => true).includes(:review, :user).page(params[:page]).per(10)
 
     render("helpful_ratings/index.html.erb")
   end
