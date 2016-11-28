@@ -10,7 +10,7 @@ class DateIdeasController < ApplicationController
   end
 
   def index
-    @date_ideas = DateIdea.all
+    @date_ideas = DateIdea.page(params[:page]).per(10)
 
     render("date_ideas/index.html.erb")
   end
