@@ -26,3 +26,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Neighborhood has many date_ideas -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Date_ideas
+      </li>
+
+      <% @neighborhood.date_ideas.each do |date_idea| %>
+        <li class="list-group-item">
+          <a href="/date_ideas/<%= date_idea.id %>">
+            <%= date_idea.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/date_ideas/<%= date_idea.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/date_ideas/<%= date_idea.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_date_idea/<%= date_idea.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
