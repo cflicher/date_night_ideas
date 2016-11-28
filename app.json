@@ -1,0 +1,1 @@
+{"name":"Date Night Ideas","repository":"https://github.com/cflicher/date_night_ideas","env":{"CLOUDINARY_CLOUD_NAME":{"required":true},"CLOUDINARY_API_KEY":{"required":true},"CLOUDINARY_API_SECRET":{"required":true},"ROLLBAR_ACCESS_TOKEN":{"required":true}}}
