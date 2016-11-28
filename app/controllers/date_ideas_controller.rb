@@ -1,5 +1,5 @@
 class DateIdeasController < ApplicationController
-  before_action :current_user_must_be_date_idea_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_date_idea_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_date_idea_user
     date_idea = DateIdea.find(params[:id])
