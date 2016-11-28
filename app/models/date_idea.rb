@@ -1,6 +1,8 @@
 class DateIdea < ApplicationRecord
   # Direct associations
 
+  belongs_to :neighborhood
+
   has_many   :reviews,
              :dependent => :destroy
 
