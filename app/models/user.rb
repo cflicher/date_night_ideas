@@ -11,6 +11,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :date_reviews,
+             :through => :reviews,
+             :source => :date_idea
+
   has_many   :helpful_rates,
              :through => :helpful_ratings,
              :source => :review
