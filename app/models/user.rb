@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :helpful_ratings,
+             :dependent => :destroy
+
   has_many   :date_ideas
 
   has_many   :reviews,
