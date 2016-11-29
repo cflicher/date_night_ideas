@@ -18,6 +18,15 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for date_idea_id -->
+      <div class="form-group">
+        <label for="date_idea_id" class="control-label">
+          Date idea
+        </label>
+
+        <%= select_tag(:date_idea_id, options_from_collection_for_select(DateIdea.all, :id, :date_name, @review.date_idea_id), :class => "form-control") %>
+      </div>
+
       
       
 
@@ -37,15 +46,6 @@
         </label>
 
         <input type="text" id="date_idea_rating_comment" name="date_idea_rating_comment" placeholder="Date idea rating comment" class="form-control" value="<%= @review.date_idea_rating_comment %>">
-      </div>
-
-      <!-- Label and input for date_idea_id -->
-      <div class="form-group">
-        <label for="date_idea_id" class="control-label">
-          Date idea
-        </label>
-
-        <%= select_tag(:date_idea_id, options_from_collection_for_select(DateIdea.all, :id, :name, @review.date_idea_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">

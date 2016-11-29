@@ -1,0 +1,52 @@
+<div class="page-header">
+  <h3>Venue #<%= @venue.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Date</dt>
+      <dd>
+        <% if @venue.date.present? %>
+          <a href="/date_ideas/<%= @venue.date_id %>">
+            <%= @venue.date.date_name %>
+          </a>
+        <% end %>
+      </dd>
+
+      <dt>Venue title</dt>
+      <dd><%= @venue.venue_title %></dd>
+
+      <dt>Venue description</dt>
+      <dd><%= @venue.venue_description %></dd>
+
+      <dt>Street address 1</dt>
+      <dd><%= @venue.street_address_1 %></dd>
+
+      <dt>Street address 2</dt>
+      <dd><%= @venue.street_address_2 %></dd>
+
+      <dt>City</dt>
+      <dd><%= @venue.city %></dd>
+
+      <dt>State</dt>
+      <dd><%= @venue.state %></dd>
+
+      <dt>Zip code</dt>
+      <dd><%= @venue.zip_code %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/venues" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/venues/<%= @venue.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_venue/<%= @venue.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
