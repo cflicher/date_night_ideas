@@ -71,8 +71,8 @@
     </div>
 
 <div class="form-group">
-      <%= f.label :date_idea_name_cont, "DateIdea name contains" %>
-      <%= f.text_field :date_idea_name_cont, :class => "form-control", :placeholder => "DateIdea name contains" %>
+      <%= f.label :date_idea_date_name_cont, "DateIdea date_name contains" %>
+      <%= f.text_field :date_idea_date_name_cont, :class => "form-control", :placeholder => "DateIdea date_name contains" %>
     </div>
 
 <div class="form-group">
@@ -94,15 +94,22 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
+        <th>Date idea</th>
         <th>User</th>
         <th>Date idea rating</th>
         <th>Date idea rating comment</th>
-        <th>Date idea</th>
         <th>Actions</th>
       </tr>
 
       <% @reviews.each do |review| %>
       <tr>
+        <td>
+          <% if review.date_idea.present? %>
+            <a href="/date_ideas/<%= review.date_idea.id %>">
+              <%= review.date_idea.date_name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <% if review.user.present? %>
             <a href="/users/<%= review.user.id %>">
@@ -112,13 +119,6 @@
         </td>
         <td><%= review.date_idea_rating %></td>
         <td><%= review.date_idea_rating_comment %></td>
-        <td>
-          <% if review.date_idea.present? %>
-            <a href="/date_ideas/<%= review.date_idea.id %>">
-              <%= review.date_idea.name %>
-            </a>
-          <% end %>
-        </td>
         <td>
           <a href="/reviews/<%= review.id %>" class="btn btn-primary">Show</a>
           

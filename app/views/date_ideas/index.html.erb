@@ -10,13 +10,10 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>User</th>
-        <th>Name</th>
-        <th>Neighborhood</th>
-        <th>Website</th>
-        <th>Address</th>
+        <th>Date name</th>
         <th>Cover photo</th>
-        <th>Price range</th>
-        <th>Description</th>
+        <th>Price category</th>
+        <th>Date description</th>
         <th>Actions</th>
       </tr>
 
@@ -29,19 +26,10 @@
             </a>
           <% end %>
         </td>
-        <td><%= date_idea.name %></td>
-        <td>
-          <% if date_idea.neighborhood.present? %>
-            <a href="/neighborhoods/<%= date_idea.neighborhood.id %>">
-              <%= date_idea.neighborhood.city_id %>
-            </a>
-          <% end %>
-        </td>
-        <td><%= date_idea.website %></td>
-        <td><%= date_idea.address %></td>
+        <td><%= date_idea.date_name %></td>
         <td><img src='<%= date_idea.cover_photo %>' class='img-responsive'></td>
-        <td><%= date_idea.price_range %></td>
-        <td><%= date_idea.description %></td>
+        <td><%= date_idea.price_category %></td>
+        <td><%= date_idea.date_description %></td>
         <td>
           <a href="/date_ideas/<%= date_idea.id %>" class="btn btn-primary">Show</a>
           

@@ -75,7 +75,7 @@
       <% @user.date_ideas.each do |date_idea| %>
         <li class="list-group-item">
           <a href="/date_ideas/<%= date_idea.id %>">
-            <%= date_idea.name %>
+            <%= date_idea.date_name %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/date_ideas/<%= date_idea.id %>" class="btn btn-primary">
@@ -174,7 +174,7 @@
       <% @user.date_reviews.each do |date_idea| %>
         <li class="list-group-item">
           <a href="/date_ideas/<%= date_idea.id %>">
-            <%= date_idea.name %>
+            <%= date_idea.date_name %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/date_ideas/<%= date_idea.id %>" class="btn btn-primary">

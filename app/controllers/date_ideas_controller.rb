@@ -11,12 +11,14 @@ class DateIdeasController < ApplicationController
 
   def index
     @q = DateIdea.ransack(params[:q])
-    @date_ideas = @q.result(:distinct => true).includes(:user, :reviews, :neighborhood, :users).page(params[:page]).per(10)
+    @date_ideas = @q.result(:distinct => true).includes(:user, :reviews, :websites, :venues, :users).page(params[:page]).per(10)
 
     render("date_ideas/index.html.erb")
   end
 
   def show
+    @venue = Venue.new
+    @website = Website.new
     @review = Review.new
     @date_idea = DateIdea.find(params[:id])
 
@@ -33,13 +35,10 @@ class DateIdeasController < ApplicationController
     @date_idea = DateIdea.new
 
     @date_idea.user_id = params[:user_id]
-    @date_idea.name = params[:name]
-    @date_idea.neighborhood_id = params[:neighborhood_id]
-    @date_idea.website = params[:website]
-    @date_idea.address = params[:address]
+    @date_idea.date_name = params[:date_name]
     @date_idea.cover_photo = params[:cover_photo]
-    @date_idea.price_range = params[:price_range]
-    @date_idea.description = params[:description]
+    @date_idea.price_category = params[:price_category]
+    @date_idea.date_description = params[:date_description]
 
     save_status = @date_idea.save
 
@@ -67,13 +66,10 @@ class DateIdeasController < ApplicationController
     @date_idea = DateIdea.find(params[:id])
 
     @date_idea.user_id = params[:user_id]
-    @date_idea.name = params[:name]
-    @date_idea.neighborhood_id = params[:neighborhood_id]
-    @date_idea.website = params[:website]
-    @date_idea.address = params[:address]
+    @date_idea.date_name = params[:date_name]
     @date_idea.cover_photo = params[:cover_photo]
-    @date_idea.price_range = params[:price_range]
-    @date_idea.description = params[:description]
+    @date_idea.price_category = params[:price_category]
+    @date_idea.date_description = params[:date_description]
 
     save_status = @date_idea.save
 

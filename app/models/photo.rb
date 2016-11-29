@@ -10,4 +10,12 @@ class Photo < ApplicationRecord
 
   # Validations
 
+  validates :photo, :uniqueness => true
+
+  validates :photo, :presence => true
+
+  validates :photo_description, :presence => true
+
+  validates :review_id, :presence => true
+
 end

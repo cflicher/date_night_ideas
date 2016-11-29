@@ -1,6 +1,6 @@
 ActiveAdmin.register DateIdea do
 
- permit_params :user_id, :name, :neighborhood_id, :website, :address, :cover_photo, :price_range, :description
+ permit_params :user_id, :date_name, :cover_photo, :price_category, :date_description
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
