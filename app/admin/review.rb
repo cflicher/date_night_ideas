@@ -1,6 +1,6 @@
 ActiveAdmin.register Review do
 
- permit_params :user_id, :date_idea_rating, :date_idea_rating_comment, :date_idea_id
+ permit_params :date_idea_id, :user_id, :date_idea_rating, :date_idea_rating_comment
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
