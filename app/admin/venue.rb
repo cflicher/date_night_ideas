@@ -1,6 +1,6 @@
-ActiveAdmin.register City do
+ActiveAdmin.register Venue do
 
- permit_params :city
+ permit_params :date_id, :venue_title, :venue_description, :street_address_1, :street_address_2, :city, :state, :zip_code
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

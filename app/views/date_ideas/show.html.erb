@@ -14,32 +14,17 @@
         <% end %>
       </dd>
 
-      <dt>Name</dt>
-      <dd><%= @date_idea.name %></dd>
-
-      <dt>Neighborhood</dt>
-      <dd>
-        <% if @date_idea.neighborhood.present? %>
-          <a href="/neighborhoods/<%= @date_idea.neighborhood_id %>">
-            <%= @date_idea.neighborhood.city_id %>
-          </a>
-        <% end %>
-      </dd>
-
-      <dt>Website</dt>
-      <dd><%= @date_idea.website %></dd>
-
-      <dt>Address</dt>
-      <dd><%= @date_idea.address %></dd>
+      <dt>Date name</dt>
+      <dd><%= @date_idea.date_name %></dd>
 
       <dt>Cover photo</dt>
       <dd><img src="<%= @date_idea.cover_photo %>" class="img-responsive"></dd>
 
-      <dt>Price range</dt>
-      <dd><%= @date_idea.price_range %></dd>
+      <dt>Price category</dt>
+      <dd><%= @date_idea.price_category %></dd>
 
-      <dt>Description</dt>
-      <dd><%= @date_idea.description %></dd>
+      <dt>Date description</dt>
+      <dd><%= @date_idea.date_description %></dd>
 
     </dl>
 
@@ -92,6 +77,15 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for date_idea_id -->
+      <div class="form-group">
+        <label for="date_idea_id" class="control-label">
+          Date idea
+        </label>
+
+        <%= select_tag(:date_idea_id, options_from_collection_for_select(DateIdea.all, :id, :date_name), :class => "form-control") %>
+      </div>
+
       <!-- Label and input for user_id -->
       <input type="hidden" name="user_id" value="<%= current_user.id %>">
 
@@ -113,17 +107,182 @@
         <input type="text" id="date_idea_rating_comment" name="date_idea_rating_comment" placeholder="Date idea rating comment" class="form-control" value="">
       </div>
 
-      <!-- Label and input for date_idea_id -->
+      <button class="btn btn-block btn-success">
+        Create Review
+      </button>
+    </form>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- A Date idea has many websites -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Websites
+      </li>
+
+      <% @date_idea.websites.each do |website| %>
+        <li class="list-group-item">
+          <a href="/websites/<%= website.id %>">
+            <%= website.date_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/websites/<%= website.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/websites/<%= website.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_website/<%= website.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_website" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for date_id -->
       <div class="form-group">
-        <label for="date_idea_id" class="control-label">
-          Date idea
+        <label for="date_id" class="control-label">
+          Date
         </label>
 
-        <%= select_tag(:date_idea_id, options_from_collection_for_select(DateIdea.all, :id, :name), :class => "form-control") %>
+        <%= select_tag(:date_id, options_from_collection_for_select(DateIdea.all, :id, :date_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for url -->
+      <div class="form-group">
+        <label for="url" class="control-label">
+          Url
+        </label>
+
+        <input type="text" id="url" name="url" placeholder="Url" class="form-control" value="">
       </div>
 
       <button class="btn btn-block btn-success">
-        Create Review
+        Create Website
+      </button>
+    </form>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- A Date idea has many venues -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Venues
+      </li>
+
+      <% @date_idea.venues.each do |venue| %>
+        <li class="list-group-item">
+          <a href="/venues/<%= venue.id %>">
+            <%= venue.date_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/venues/<%= venue.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/venues/<%= venue.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_venue/<%= venue.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_venue" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for date_id -->
+      <div class="form-group">
+        <label for="date_id" class="control-label">
+          Date
+        </label>
+
+        <%= select_tag(:date_id, options_from_collection_for_select(DateIdea.all, :id, :date_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for venue_title -->
+      <div class="form-group">
+        <label for="venue_title" class="control-label">
+          Venue title
+        </label>
+
+        <input type="text" id="venue_title" name="venue_title" placeholder="Venue title" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for venue_description -->
+      <div class="form-group">
+        <label for="venue_description" class="control-label">
+          Venue description
+        </label>
+
+        <input type="text" id="venue_description" name="venue_description" placeholder="Venue description" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for street_address_1 -->
+      <div class="form-group">
+        <label for="street_address_1" class="control-label">
+          Street address 1
+        </label>
+
+        <input type="text" id="street_address_1" name="street_address_1" placeholder="Street address 1" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for street_address_2 -->
+      <div class="form-group">
+        <label for="street_address_2" class="control-label">
+          Street address 2
+        </label>
+
+        <input type="text" id="street_address_2" name="street_address_2" placeholder="Street address 2" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="control-label">
+          State
+        </label>
+
+        <input type="text" id="state" name="state" placeholder="State" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for zip_code -->
+      <div class="form-group">
+        <label for="zip_code" class="control-label">
+          Zip code
+        </label>
+
+        <input type="text" id="zip_code" name="zip_code" placeholder="Zip code" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Venue
       </button>
     </form>
       </li>

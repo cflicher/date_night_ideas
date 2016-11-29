@@ -2,6 +2,40 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root :to => "photos#index"
+  # Routes for the Venue resource:
+  # CREATE
+  get "/venues/new", :controller => "venues", :action => "new"
+  post "/create_venue", :controller => "venues", :action => "create"
+
+  # READ
+  get "/venues", :controller => "venues", :action => "index"
+  get "/venues/:id", :controller => "venues", :action => "show"
+
+  # UPDATE
+  get "/venues/:id/edit", :controller => "venues", :action => "edit"
+  post "/update_venue/:id", :controller => "venues", :action => "update"
+
+  # DELETE
+  get "/delete_venue/:id", :controller => "venues", :action => "destroy"
+  #------------------------------
+
+  # Routes for the Website resource:
+  # CREATE
+  get "/websites/new", :controller => "websites", :action => "new"
+  post "/create_website", :controller => "websites", :action => "create"
+
+  # READ
+  get "/websites", :controller => "websites", :action => "index"
+  get "/websites/:id", :controller => "websites", :action => "show"
+
+  # UPDATE
+  get "/websites/:id/edit", :controller => "websites", :action => "edit"
+  post "/update_website/:id", :controller => "websites", :action => "update"
+
+  # DELETE
+  get "/delete_website/:id", :controller => "websites", :action => "destroy"
+  #------------------------------
+
   # Routes for the Helpful_rating resource:
   # CREATE
   get "/helpful_ratings/new", :controller => "helpful_ratings", :action => "new"
@@ -17,40 +51,6 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_helpful_rating/:id", :controller => "helpful_ratings", :action => "destroy"
-  #------------------------------
-
-  # Routes for the City resource:
-  # CREATE
-  get "/cities/new", :controller => "cities", :action => "new"
-  post "/create_city", :controller => "cities", :action => "create"
-
-  # READ
-  get "/cities", :controller => "cities", :action => "index"
-  get "/cities/:id", :controller => "cities", :action => "show"
-
-  # UPDATE
-  get "/cities/:id/edit", :controller => "cities", :action => "edit"
-  post "/update_city/:id", :controller => "cities", :action => "update"
-
-  # DELETE
-  get "/delete_city/:id", :controller => "cities", :action => "destroy"
-  #------------------------------
-
-  # Routes for the Neighborhood resource:
-  # CREATE
-  get "/neighborhoods/new", :controller => "neighborhoods", :action => "new"
-  post "/create_neighborhood", :controller => "neighborhoods", :action => "create"
-
-  # READ
-  get "/neighborhoods", :controller => "neighborhoods", :action => "index"
-  get "/neighborhoods/:id", :controller => "neighborhoods", :action => "show"
-
-  # UPDATE
-  get "/neighborhoods/:id/edit", :controller => "neighborhoods", :action => "edit"
-  post "/update_neighborhood/:id", :controller => "neighborhoods", :action => "update"
-
-  # DELETE
-  get "/delete_neighborhood/:id", :controller => "neighborhoods", :action => "destroy"
   #------------------------------
 
   # Routes for the Date_idea resource:

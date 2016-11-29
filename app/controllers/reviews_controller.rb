@@ -33,10 +33,10 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new
 
+    @review.date_idea_id = params[:date_idea_id]
     @review.user_id = params[:user_id]
     @review.date_idea_rating = params[:date_idea_rating]
     @review.date_idea_rating_comment = params[:date_idea_rating_comment]
-    @review.date_idea_id = params[:date_idea_id]
 
     save_status = @review.save
 
@@ -63,10 +63,10 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
 
+    @review.date_idea_id = params[:date_idea_id]
     @review.user_id = params[:user_id]
     @review.date_idea_rating = params[:date_idea_rating]
     @review.date_idea_rating_comment = params[:date_idea_rating_comment]
-    @review.date_idea_id = params[:date_idea_id]
 
     save_status = @review.save
 

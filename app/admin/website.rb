@@ -1,6 +1,6 @@
-ActiveAdmin.register Neighborhood do
+ActiveAdmin.register Website do
 
- permit_params :city_id, :neighborhood
+ permit_params :date_id, :url
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
